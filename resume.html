@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Резюме: Tony Simanov — Data Scientist</title>
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --accent: #3498db;
+      --light: #f9f9f9;
+      --text: #333;
+      --border: #eee;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      background-color: #fff;
+    }
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .section {
+      margin-top: 2rem;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    .skills-table th,
+    .skills-table td {
+      padding: 0.6rem 0.4rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .skills-table th {
+      background-color: var(--light);
+      font-weight: 600;
+    }
+    .project {
+      margin-bottom: 1.4rem;
+    }
+    .project h3 {
+      margin-bottom: 0.3rem;
+    }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Резюме: Tony Simanov</h1>
+    <p><em>Data Scientist & AI Developer</em></p>
+  </header>
+
+  <div class="section">
+    <h2>Контактная информация</h2>
+    <div class="contact-grid">
+      <div><strong>Имя:</strong> Tony Simanov</div>
+      <div><strong>Email:</strong> <a href="mailto:teslatony14@gmail.com">teslatony14@gmail.com</a></div>
+      <div><strong>GitHub:</strong> <a href="https://github.com/Tony14100" target="_blank">github.com/Tony14100</a></div>
+      <div><strong>Hugging Face:</strong> <a href="https://huggingface.co/teslatony" target="_blank">huggingface.co/teslatony</a></div>
+      <div><strong>YouTube:</strong> <a href="https://www.youtube.com/@Tonyscar1310" target="_blank">@Tonyscar1310</a></div>
+      <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tonysimanov" target="_blank">linkedin.com/in/tonysimanov</a> *(рекомендую обновить)*</div>
+      <div><strong>Местоположение:</strong> [Укажите город, если актуально]</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Профессиональный обзор</h2>
+    <p>
+      Разработчик и исследователь в области искусственного интеллекта с фокусом на data science. Самостоятельно освоил анализ данных, машинное обучение и развертывание моделей. Создал 15+ проектов на Kaggle, Google Colab и Hugging Face, охватывающих NLP, компьютерное зрение, прогнозирование и генерацию контента. Ищу junior-позицию data scientist для применения навыков в реальных бизнес-задачах, таких как анализ клиентских данных и детекция аномалий.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Ключевые навыки</h2>
+    <table class="skills-table">
+      <tr>
+        <th>Категория</th>
+        <th>Навыки</th>
+      </tr>
+      <tr>
+        <td><strong>Языки программирования</strong></td>
+        <td>Python (pandas, numpy, scikit-learn)</td>
+      </tr>
+      <tr>
+        <td><strong>ML/Фреймворки</strong></td>
+        <td>TensorFlow, Keras (Tuner), PyTorch, AutoBNN</td>
+      </tr>
+      <tr>
+        <td><strong>Модели</strong></td>
+        <td>Stable Diffusion, YOLOv8, SAM-2, Florence-2, Gemini, VisionEye</td>
+      </tr>
+      <tr>
+        <td><strong>Инструменты</strong></td>
+        <td>Jupyter Notebooks, Google Colab, Gradio, Streamlit, Hugging Face Transformers</td>
+      </tr>
+      <tr>
+        <td><strong>Данные</strong></td>
+        <td>Анализ настроений, детекция фрода, прогнозирование оттока, обработка изображений/видео</td>
+      </tr>
+      <tr>
+        <td><strong>Другое</strong></td>
+        <td>Git, Kaggle, YouTube-демо, OpenCV (для CV-проектов)</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Ключевые проекты</h2>
+    <p><em>End-to-End: от данных до деплоя</em></p>
+
+    <div class="project">
+      <h3>1. Анализ настроений комментариев MrBeast (Kaggle)</h3>
+      <p><strong>Описание:</strong> Анализ 100k+ YouTube-комментариев для выявления настроений с использованием NLP-моделей.<br>
+         <strong>Результаты:</strong> Модель с accuracy 85% (BERT-based).<br>
+         <strong>Технологии:</strong> Pandas, Scikit-learn, Hugging Face.<br>
+         <strong>Ссылка:</strong> <a href="https://www.kaggle.com/code/tonysimanov/mrbeast-youtube" target="_blank">kaggle.com/code/tonysimanov/mrbeast-youtube</a>
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>2. Детекция мошенничества с кредитными картами (Kaggle)</h3>
+      <p><strong>Описание:</strong> Классификация транзакций на фрод с балансировкой классов и feature engineering.<br>
+         <strong>Результаты:</strong> F1-score 0.92 на тестовых данных.<br>
+         <strong>Технологии:</strong> TensorFlow, Keras.<br>
+         <strong>Ссылка:</strong> <a href="https://www.kaggle.com/code/tonysimanov/notebook3d8b8c7c20" target="_blank">kaggle.com/code/tonysimanov/notebook3d8b8c7c20</a>
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>3. Прогнозирование оттока клиентов (Telecom, Colab)</h3>
+      <p><strong>Описание:</strong> Модель для предсказания churn на основе демографии и использования.<br>
+         <strong>Результаты:</strong> ROC-AUC 0.88; визуализация churn-драйверов.<br>
+         <strong>Технологии:</strong> Scikit-learn, Matplotlib.<br>
+         <strong>Ссылка:</strong> <a href="https://colab.research.google.com/drive/1Kk2WRoaugYydx7U0dWBCRRkKYy3fYkj5?usp=sharing" target="_blank">Colab</a>
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>4. Генератор изображений по тексту (Hugging Face)</h3>
+      <p><strong>Описание:</strong> Web-приложение для text-to-image с кастомными промптами.<br>
+         <strong>Результаты:</strong> Деплой с 500+ запусками; latency <5s.<br>
+         <strong>Технологии:</strong
