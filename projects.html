@@ -43,6 +43,7 @@
       margin-bottom: 1.5rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
     }
     .project:hover {
       transform: translateY(-4px);
@@ -90,6 +91,7 @@
       font-weight: 500;
       transition: background 0.2s, transform 0.2s;
       margin-top: 1rem;
+      cursor: pointer;
     }
     .add-project:hover {
       background: #005fcc;
@@ -99,12 +101,50 @@
       text-align: center;
       margin-top: 2rem;
     }
+    input, textarea {
+      width: 100%;
+      margin: 0.3rem 0 1rem;
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-family: "Inter", Arial, sans-serif;
+    }
+    button.submit {
+      background: #0078ff;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.4rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    button.submit:hover {
+      background: #005fcc;
+    }
+    .hidden {
+      display: none;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff4d4f;
+      color: #fff;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .delete-btn:hover {
+      background: #d9363e;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Дополнительный проект</h1>
+    <h1>Проекты</h1>
     <p>Симанов Антон — Data Scientist / ML Engineer</p>
   </header>
 
@@ -133,19 +173,27 @@
           <li>Вывод ключевых закономерностей и визуализация результатов.</li>
         </ul>
         <p>
-          Технологии и инструменты: Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, Google Colab.
+          Технологии: Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, Google Colab.
         </p>
         <p>
           🔗 <a href="https://colab.research.google.com/drive/1CnlIWbwz3XcDt3mwlPp3II9et6FhC-cf#scrollTo=56ff1521" target="_blank">
             Открыть проект в Google Colab
           </a>
         </p>
+        <button class="delete-btn" onclick="deleteProject(this)">Удалить</button>
       </div>
 
       <div class="center">
-        <a class="add-project" href="https://github.com/Tony14100/tony14100.github.io" target="_blank">
-          ➕ Добавить новый проект
-        </a>
+        <div class="add-project" onclick="showForm()">➕ Добавить новый проект</div>
+      </div>
+
+      <div id="project-form" class="hidden">
+        <h3>Новый проект</h3>
+        <input type="text" id="title" placeholder="Название проекта" />
+        <textarea id="description" placeholder="Описание проекта"></textarea>
+        <textarea id="tasks" placeholder="Задачи проекта (каждую задачу с новой строки)"></textarea>
+        <input type="text" id="link" placeholder="Ссылка на проект" />
+        <button class="submit" onclick="addProject()">Добавить проект</button>
       </div>
 
     </section>
@@ -156,5 +204,53 @@
     © 2025 Симанов Антон — все проекты
   </footer>
 
+  <script>
+    function showForm() {
+      document.getElementById('project-form').classList.toggle('hidden');
+    }
+
+    function addProject() {
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const tasks = document.getElementById('tasks').value.split('\n');
+      const link = document.getElementById('link').value;
+
+      if (!title || !description || !link) {
+        alert('Пожалуйста, заполните все поля!');
+        return;
+      }
+
+      const projectSection = document.getElementById('projects');
+      const div = document.createElement('div');
+      div.className = 'project';
+
+      let taskList = '';
+      tasks.forEach(t => { if(t.trim()) taskList += `<li>${t}</li>`; });
+
+      div.innerHTML = `
+        <h3>🧠 ${title}</h3>
+        <p>${description}</p>
+        ${taskList ? `<ul>${taskList}</ul>` : ''}
+        <p>🔗 <a href="${link}" target="_blank">Открыть проект</a></p>
+        <button class="delete-btn" onclick="deleteProject(this)">Удалить</button>
+      `;
+
+      projectSection.appendChild(div);
+
+      // Сброс формы
+      document.getElementById('title').value = '';
+      document.getElementById('description').value = '';
+      document.getElementById('tasks').value = '';
+      document.getElementById('link').value = '';
+      document.getElementById('project-form').classList.add('hidden');
+    }
+
+    function deleteProject(button) {
+      const projectDiv = button.parentElement;
+      projectDiv.remove();
+    }
+  </script>
+
 </body>
 </html>
+
