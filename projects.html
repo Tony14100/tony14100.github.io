@@ -80,6 +80,24 @@
       color: #666;
       font-size: 0.9rem;
     }
+    .add-project {
+      display: inline-block;
+      background: #0078ff;
+      color: #fff;
+      padding: 0.8rem 1.4rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .add-project:hover {
+      background: #005fcc;
+      transform: translateY(-2px);
+    }
+    .center {
+      text-align: center;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
@@ -96,35 +114,31 @@
   <main>
 
     <section id="projects">
-      <h2>Мои проекты</h2>
+      <h2>Мой проект</h2>
 
       <div class="project">
         <h3>🧠 Machine Learning Experiment — Google Colab</h3>
-        <p>Экспериментальный ML-проект с использованием Colab. Реализованы:</p>
+        <p>
+          Исследовательский ML-проект, реализованный в Google Colab.
+          В ноутбуке продемонстрирован полный цикл машинного обучения — от анализа данных до визуализации результатов.
+        </p>
         <ul>
-          <li>Обработка данных, визуализация распределений;</li>
-          <li>Обучение моделей (scikit-learn, TensorFlow, PyTorch);</li>
-          <li>Сравнение метрик Accuracy, F1, ROC-AUC;</li>
-          <li>Интерактивные графики и анализ результатов.</li>
+          <li>Предобработка данных и исследовательский анализ (EDA);</li>
+          <li>Обучение моделей с использованием Scikit-learn и TensorFlow;</li>
+          <li>Оценка метрик качества (Accuracy, F1-score, ROC-AUC);</li>
+          <li>Построение графиков и вывод ключевых закономерностей.</li>
         </ul>
-        <p>🔗 <a href="https://colab.research.google.com/drive/1CnlIWbwz3XcDt3mwlPp3II9et6FhC-cf#scrollTo=56ff1521" target="_blank">Открыть в Google Colab</a></p>
+        <p>
+          🔗 <a href="https://colab.research.google.com/drive/1CnlIWbwz3XcDt3mwlPp3II9et6FhC-cf#scrollTo=56ff1521" target="_blank">
+            Открыть проект в Google Colab
+          </a>
+        </p>
       </div>
 
-      <div class="project">
-        <h3>📊 Анализ данных продаж — Python + Pandas</h3>
-        <p>Проект по исследованию и визуализации данных продаж, расчёту KPI и прогнозированию динамики спроса.</p>
-        <ul>
-          <li>EDA, корреляционный анализ;</li>
-          <li>Matplotlib, Seaborn, Plotly;</li>
-          <li>Моделирование временных рядов (ARIMA, Prophet).</li>
-        </ul>
-        <p>🔗 <a href="#" target="_blank">Смотреть проект</a></p>
-      </div>
-
-      <div class="project">
-        <h3>🤖 Классификация изображений — PyTorch</h3>
-        <p>Обучение сверточной нейросети для классификации изображений животных. Реализована аугментация данных и fine-tuning ResNet18.</p>
-        <p>🔗 <a href="#" target="_blank">GitHub</a></p>
+      <div class="center">
+        <a class="add-project" href="https://github.com/tony14100/tony14100.github.io" target="_blank">
+          ➕ Добавить новый проект
+        </a>
       </div>
 
     </section>
@@ -137,3 +151,4 @@
 
 </body>
 </html>
+
