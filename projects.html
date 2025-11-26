@@ -155,48 +155,23 @@
   <main>
 
     <section id="projects">
-      <h2>Мой проект</h2>
+      <h2>Мои проекты</h2>
 
-      <div class="project">
-        <h3>🧠 Machine Learning Experiment — Google Colab</h3>
-        <p>
-          Это исследовательский ML-проект, реализованный в Google Colab. Цель проекта — изучение и применение методов машинного обучения для анализа данных и построения прогнозных моделей.
-        </p>
-        <p>
-          В проекте решаются следующие задачи:
-        </p>
-        <ul>
-          <li>Загрузка и предобработка данных;</li>
-          <li>Исследовательский анализ данных (EDA) и визуализация;</li>
-          <li>Обучение и настройка моделей (Scikit-learn, TensorFlow);</li>
-          <li>Оценка качества моделей по метрикам Accuracy, F1-score, ROC-AUC;</li>
-          <li>Вывод ключевых закономерностей и визуализация результатов.</li>
-        </ul>
-        <p>
-          Технологии: Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, Google Colab.
-        </p>
-        <p>
-          🔗 <a href="https://colab.research.google.com/drive/1CnlIWbwz3XcDt3mwlPp3II9et6FhC-cf#scrollTo=56ff1521" target="_blank">
-            Открыть проект в Google Colab
-          </a>
-        </p>
-        <button class="delete-btn" onclick="deleteProject(this)">Удалить</button>
-      </div>
-
-      <div class="center">
-        <div class="add-project" onclick="showForm()">➕ Добавить новый проект</div>
-      </div>
-
-      <div id="project-form" class="hidden">
-        <h3>Новый проект</h3>
-        <input type="text" id="title" placeholder="Название проекта" />
-        <textarea id="description" placeholder="Описание проекта"></textarea>
-        <textarea id="tasks" placeholder="Задачи проекта (каждую задачу с новой строки)"></textarea>
-        <input type="text" id="link" placeholder="Ссылка на проект" />
-        <button class="submit" onclick="addProject()">Добавить проект</button>
-      </div>
-
+      <!-- Блок для проектов будет заполняться скриптом -->
     </section>
+
+    <div class="center">
+      <div class="add-project" onclick="showForm()">➕ Добавить новый проект</div>
+    </div>
+
+    <div id="project-form" class="hidden">
+      <h3>Новый проект</h3>
+      <input type="text" id="title" placeholder="Название проекта" />
+      <textarea id="description" placeholder="Описание проекта"></textarea>
+      <textarea id="tasks" placeholder="Задачи проекта (каждую задачу с новой строки)"></textarea>
+      <input type="text" id="link" placeholder="Ссылка на проект" />
+      <button class="submit" onclick="addProject()">Добавить проект</button>
+    </div>
 
   </main>
 
@@ -205,27 +180,83 @@
   </footer>
 
   <script>
+    const defaultProjects = [
+      {
+        title: "Machine Learning Experiment — Google Colab",
+        description: "Это исследовательский ML-проект, реализованный в Google Colab. Цель проекта — изучение и применение методов машинного обучения для анализа данных и построения прогнозных моделей.",
+        tasks: [
+          "Загрузка и предобработка данных",
+          "Исследовательский анализ данных (EDA) и визуализация",
+          "Обучение и настройка моделей (Scikit-learn, TensorFlow)",
+          "Оценка качества моделей по метрикам Accuracy, F1-score, ROC-AUC",
+          "Вывод ключевых закономерностей и визуализация результатов"
+        ],
+        link: "https://colab.research.google.com/drive/1CnlIWbwz3XcDt3mwlPp3II9et6FhC-cf#scrollTo=56ff1521"
+      },
+      {
+        title: "Mathematical Tony — бот-репетитор по математике",
+        description: "Mathematical Tony — это интерактивный ИИ-репетитор по математике для учеников начальной и средней школы. Бот объясняет сложные темы простым и понятным языком, не даёт готовых ответов, а пошагово подводит ученика к правильному решению. Он помогает развивать логическое мышление и уверенность в своих знаниях, делая обучение интересным и доступным.",
+        tasks: [
+          "Давать дружелюбные и понятные математические подсказки",
+          "Объяснять трудные темы простым языком",
+          "Не предоставлять готовые ответы, а направлять ученика",
+          "Мотивировать ребёнка размышлять самостоятельно",
+          "Создать удобную обучающую среду на базе Hugging Face Spaces",
+          "Служить прототипом образовательного ИИ-ассистента"
+        ],
+        link: "https://huggingface.co/spaces/teslatony/bot1"
+      }
+    ];
+
+    // Загрузка проектов из localStorage при старте
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedProjects = JSON.parse(localStorage.getItem("projects"));
+      if (!savedProjects) {
+        localStorage.setItem("projects", JSON.stringify(defaultProjects));
+        defaultProjects.forEach(p => createProjectDiv(p.title, p.description, p.tasks, p.link));
+      } else {
+        savedProjects.forEach(p => createProjectDiv(p.title, p.description, p.tasks, p.link));
+      }
+    });
+
     function showForm() {
       document.getElementById('project-form').classList.toggle('hidden');
     }
 
     function addProject() {
-      const title = document.getElementById('title').value;
-      const description = document.getElementById('description').value;
-      const tasks = document.getElementById('tasks').value.split('\n');
-      const link = document.getElementById('link').value;
+      const title = document.getElementById('title').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const tasks = document.getElementById('tasks').value.split('\n').map(t => t.trim()).filter(t => t);
+      const link = document.getElementById('link').value.trim();
 
       if (!title || !description || !link) {
         alert('Пожалуйста, заполните все поля!');
         return;
       }
 
+      createProjectDiv(title, description, tasks, link);
+
+      const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
+      savedProjects.push({ title, description, tasks, link });
+      localStorage.setItem("projects", JSON.stringify(savedProjects));
+
+      // Сброс формы
+      document.getElementById('title').value = '';
+      document.getElementById('description').value = '';
+      document.getElementById('tasks').value = '';
+      document.getElementById('link').value = '';
+      document.getElementById('project-form').classList.add('hidden');
+    }
+
+    function createProjectDiv(title, description, tasks, link) {
       const projectSection = document.getElementById('projects');
       const div = document.createElement('div');
       div.className = 'project';
 
       let taskList = '';
-      tasks.forEach(t => { if(t.trim()) taskList += `<li>${t}</li>`; });
+      if (tasks && tasks.length > 0) {
+        tasks.forEach(t => { if(t) taskList += `<li>${t}</li>`; });
+      }
 
       div.innerHTML = `
         <h3>🧠 ${title}</h3>
@@ -236,21 +267,18 @@
       `;
 
       projectSection.appendChild(div);
-
-      // Сброс формы
-      document.getElementById('title').value = '';
-      document.getElementById('description').value = '';
-      document.getElementById('tasks').value = '';
-      document.getElementById('link').value = '';
-      document.getElementById('project-form').classList.add('hidden');
     }
 
     function deleteProject(button) {
       const projectDiv = button.parentElement;
+      const title = projectDiv.querySelector('h3').textContent.replace('🧠 ', '').trim();
       projectDiv.remove();
+
+      let savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
+      savedProjects = savedProjects.filter(p => p.title !== title);
+      localStorage.setItem("projects", JSON.stringify(savedProjects));
     }
   </script>
 
 </body>
 </html>
-
