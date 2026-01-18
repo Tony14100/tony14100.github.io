@@ -11,6 +11,7 @@
       background: #f6f8fb;
       color: #222;
       margin: 0;
+      padding: 0;
     }
 
     header {
@@ -113,17 +114,41 @@
 </footer>
 
 <script>
-  /***********************
-   * ДОБАВЛЯЙ ПРОЕКТЫ ЗДЕСЬ
-   ***********************/
   const PROJECTS = [
-    // пример:
-    // {
-    //   title: "ML Experiment",
-    //   description: "Исследование моделей машинного обучения",
-    //   tasks: ["EDA", "Обучение модели", "Оценка метрик"],
-    //   link: "https://example.com"
-    // }
+    {
+      title: "ML Experiment",
+      description: "Анализ настроений MrBeast YouTube",
+      tasks: [
+        "Обработка 100k+ комментариев: sentiment analysis с визуализацией трендов.",
+        "Accuracy 85%; word clouds для insights.",
+        "Pandas, NLTK, BERT."
+      ],
+      link: "https://colab.research.google.com/drive/1k5PC3QVknj4gySc86-jKlKevFB_6bLoO"
+    },
+    {
+      title: "Детекция фрода кредитных карт",
+      description: "Классификация транзакций с балансировкой классов и анализом важности признаков",
+      tasks: ["SMOTE для баланса", "Feature importance", "ROC-AUC анализ"],
+      link: "https://www.kaggle.com/code/tonysimanov/notebook3d8b8c7c20"
+    },
+    {
+      title: "Прогноз продаж",
+      description: "Прогнозирование розничных продаж с учётом сезонности",
+      tasks: ["Time-series анализ", "MAE <10%", "Scikit-learn, Prophet"],
+      link: "https://colab.research.google.com/drive/1qkVVEb2Mrupuvxx_2CJz1XUB3zza3ZAD?usp=sharing"
+    },
+    {
+      title: "Кластеризация клиентов",
+      description: "Поведение покупателей, RFM-анализ, рекомендации",
+      tasks: ["4 кластера", "uplift 15%", "KMeans, Matplotlib"],
+      link: "https://colab.research.google.com/drive/1sFucS90uC1YYbMl8YFMgiPFjk6AQ-HLt?usp=sharing"
+    },
+    {
+      title: "Отток клиентов Telecom",
+      description: "Бинарная классификация churn с использованием SHAP для интерпретируемости",
+      tasks: ["ROC-AUC 0.88", "Retention insights", "XGBoost, SHAP"],
+      link: "https://colab.research.google.com/drive/1Kk2WRoaugYydx7U0dWBCRRkKYy3fYkj5?usp=sharing"
+    }
   ];
 
   const container = document.getElementById("projects");
