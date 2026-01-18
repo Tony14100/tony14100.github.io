@@ -6,13 +6,13 @@
 const PROJECTS = [
   {
     title: "ML Experiment",
-    description: "Исследование моделей машинного обучения и оценка качества",
+    description: "Анализ настроений MrBeast YouTube",
     tasks: [
-      "EDA и визуализация",
-      "Обучение моделей",
-      "Оценка метрик"
+      "Обработка 100k+ комментариев: sentiment analysis с визуализацией трендов.",
+      "Accuracy 85%; word clouds для insights.",
+      "Pandas, NLTK, BERT."
     ],
-    link: "https://example.com"
+    link: "https://colab.research.google.com/drive/1k5PC3QVknj4gySc86-jKlKevFB_6bLoO"
   }
 
   // ← просто добавляй новый объект ниже
